@@ -34,7 +34,7 @@
       <div class="navigation-container">
         <div class="navigation-left">
           <a href="/" aria-current="page" class="brand w-nav-brand w—current" aria-label="home">
-            <img src="assets/images/logo_color.png" alt="" class="template-logo" />
+            <img src="assets/images/graphic_color.png" alt="" class="template-logo" />
           </a>
           <nav role="navigation" class="nav-menu w-nav-menu">
             <a href="/case-study" class="link-block w-inline-block">
@@ -47,7 +47,7 @@
         </div>
         <div class="navigation-right">
           <div class="login-buttons">
-            <a href="https://github.com/dendro-monitoring" target="_blank">
+            <a href="https://github.com/Bastion-BaaS" target="_blank">
               <span style="color: #161d6f">
                 <i class="fab fa-github fa-lg"></i>
               </span>
@@ -69,7 +69,7 @@
         <br />
         <br />
 
-        <h2 class="h2">1 Overview</h2>
+        <h2 class="h2 one">1 Overview</h2>
         <br>
         <p>
           Bastion is a scalable, open-source Backend-as-a-Service that gets deployed to the cloud with AWS, allowing a frontend 
@@ -79,7 +79,7 @@
         </p>
         <br />
 
-        <h2 class="h2">2 Backend-as-a-Service</h2>
+        <h2 class="h2 two">2 Backend-as-a-Service</h2>
 
         <h3>2.1 Frontend vs Backend</h3>
         <p>
@@ -158,7 +158,7 @@
           API key. If Fortress.io decides to use a BaaS provider without Cloud Code then they won’t be able to securely integrate Stripe into their 
           application. But if their BaaS provider does have Cloud Code, then the Fortress.io engineers can define a custom function in the backend with 
           access to the Stripe secret API key and then they can call that function from the frontend using an HTTP request. The advantages of Cloud Code 
-          have made it an increasingly important BaaS feature [CITATION].
+          have made it an increasingly important BaaS feature<sup><a href="https://github.com/appwrite/appwrite/issues/307">1</a></sup>.
         </p>
         <figure>
           <img src="assets/images/5_ccf_execute.png" class="case-study-image" />
@@ -189,8 +189,8 @@
           implement your application around the interfaces provided by the managed BaaS service. This makes it difficult if you ever need to migrate 
           your application away from the managed BaaS service. For example, if the BaaS provider ceases to exist, then you will have to create a 
           backend from scratch or figure out how to migrate your application to a new BaaS provider. This has happened several times in recent years, 
-          including when Facebook dropped support for Parse in 2017 [CITATION] and when Microsoft retired their Mobile-Backend-as-a-Service 
-          in 2020 [CITATION].
+          including when Facebook dropped support for Parse in 2017<sup><a href="https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/">2</a></sup> and when Microsoft retired their Mobile-Backend-as-a-Service 
+          in 2020<sup><a href="https://devblogs.microsoft.com/appcenter/app-center-mbaas-retirement/">3</a></sup>.
         </p>
         <figure>
           <img src="assets/images/6_compare_baas.png" class="case-study-image" />
@@ -242,7 +242,7 @@
         </figure>
         <br />
 
-        <h2 class="h2">3 Bastion Overview</h2>
+        <h2 class="h2 three">3 Bastion Overview</h2>
         <p>
           Bastion encompasses several components that work together to provide a streamlined user experience. Here we provide a brief overview of 
           these components, with more detailed usage instructions included in the ‘Using Bastion’ section below.
@@ -273,7 +273,7 @@
         <p>
           The Bastion Software Development Kit (SDK) is an npm package that can be installed in your frontend code to facilitate communication with 
           your Bastion Server. Once the SDK is configured, you will have access to a variety of built-in methods that make it easy to interact with 
-          your Bastion Server to accomplish common backend tasks. For example, to get all items in a database collection, simply run the sdk.db.getAllItems 
+          your Bastion Server to accomplish common backend tasks. For example, to get all items in a database collection, simply run the <code>sdk.db.getAllItems</code> 
           function, passing the collection name as an argument.
         </p>
         <figure>
@@ -305,7 +305,7 @@
 
         <h3>3.4 Bastion Command-Line Interface (CLI)</h3>
         <p>
-          The Bastion CLI is the entry point for using Bastion. Simply install the npm package on your machine, type bastion deploy, 
+          The Bastion CLI is the entry point for using Bastion. Simply install the npm package on your machine, type <code>bastion deploy</code>, 
           follow the prompts, and you will have a fully functional Admin App in your AWS account in a few minutes. The only prerequisites 
           are having an authenticated installation of the AWS CLI and a domain hosted in your AWS account.
         </p>
@@ -318,7 +318,7 @@
         </figure>
         <br />
 
-        <h2 class="h2">4 Bastion Design Decisions</h2>
+        <h2 class="h2 four">4 Bastion Design Decisions</h2>
         <p>
           Now that we’ve reviewed the main components of Bastion, we can discuss some of the design decisions we made while implementing Bastion. 
           ne of our main goals with Bastion was to make it as flexible as possible. We looked at the current BaaS options and realized that it 
@@ -371,7 +371,7 @@
         <h3>4.2 Container Orchestration</h3>
         <p>
           Using containers for our application meant deciding on how to manage, network, and organize those containers. Since we are using AWS for our 
-          infrastructure, this meant that we had to decide between Elastic Container Service (ECS) and Elastic Kubernetes Service (EKS) [CITATION]. 
+          infrastructure, this meant that we had to decide between Elastic Container Service (ECS) and Elastic Kubernetes Service (EKS)<sup><a href="https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/">4</a></sup>. 
           AWS advertises ECS as the simpler container orchestration tool—an opinionated solution for running containers at scale that decreases the 
           number of decisions required for compute, network, and security configurations without sacrificing features. Alternatively, EKS is the 
           more flexible solution, leveraging the massive open-source Kubernetes ecosystem to allow for fine-grained control over how the containers 
@@ -389,9 +389,9 @@
         </p>
         <br />
 
-        <h4>4.2.1 Fargate vs EC2</h4>
+        <h4>Fargate vs EC2</h4>
         <p>
-          There are two ways to run the containers on ECS: Fargate and EC2 [CITATION]. With EC2, you are responsible for provisioning, configuring, 
+          There are two ways to run the containers on ECS: Fargate and EC2<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html">5</a></sup>. With EC2, you are responsible for provisioning, configuring, 
           and scaling your own cluster of EC2 instances for running the containers. You have to choose server types, decide when to scale your 
           clusters, and optimize cluster packing. Fargate, on the other hand, is much simpler and there is much less configuration and 
           maintenance — you only have to think about the containers.
@@ -416,13 +416,13 @@
           Now that we had decided to use ECS Fargate for container orchestration, we needed to decide how to persist application data. 
           Specifically, for a Bastion Server instance, we needed to determine what kind of database to use. While relational databases are 
           good for structured data and flexible queries, we quickly settled on using a NoSQL database because NoSQL databases have more flexible 
-          schema [CITATION]. We wouldn’t have to force users to define the schema and relationships of their databases before they use them, 
+          schema<sup><a href="http://highscalability.com/blog/2010/12/6/what-the-heck-are-you-actually-using-nosql-for.html">6</a></sup>. We wouldn’t have to force users to define the schema and relationships of their databases before they use them, 
           they could just create a collection and start manipulating their data right away. The flexibility and ease of use of NoSQL fit well 
           with our goal of decreasing configuration and increasing development speed.
         </p>
         <br />
         
-        <h4>4.3.1 DynamoDB vs MongoDB</h4>
+        <h4>DynamoDB vs MongoDB</h4>
         <p>
           Having settled on a NoSQL database, we needed to determine which database to implement. Since we’re using AWS infrastructure, we could 
           use DyanmoDB, a fully managed, scalable, high-performance key-value NoSQL database. Setup is relatively straightforward and maintenance 
@@ -438,14 +438,14 @@
         </p>
         <br />
 
-        <h4>4.3.2 Persisting Data with Elastic File System (EFS)</h4>
+        <h4>Persisting Data with Elastic File System (EFS)</h4>
         <p>
           Running a database Docker image in a container comes with some challenges. When data is written to disk in a container, it is stored 
-          on a writeable container layer, meaning that the data doesn’t persist when that container no longer exists [CITATION]. One solution 
+          on a writeable container layer, meaning that the data doesn’t persist when that container no longer exists<sup><a href="https://docs.docker.com/storage/volumes/">7</a></sup>. One solution 
           is to use Docker Volumes to persist the data. When defining a Docker Volume for a container, the data in the specified directory gets 
           persisted to the host machine. But this means that if our MongoDB container gets restarted on a different underlying host, all of 
-          the database data will be lost. To overcome this challenge, we use AWS Elastic File System (EFS) [CITATION]. We mount EFS to the 
-          /data/db directory in our MongoDB container, so that MongoDB uses EFS when it reads or writes data, instead of the local, ephemeral 
+          the database data will be lost. To overcome this challenge, we use AWS Elastic File System (EFS)<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">8</a></sup>. We mount EFS to the 
+          <code>/data/db</code> directory in our MongoDB container, so that MongoDB uses EFS when it reads or writes data, instead of the local, ephemeral 
           container storage. Now, the data is persisted even if the container is restarted. This solution also means that we don’t have to worry 
           about the size of our user’s data, since EFS will automatically grow and shrink as users add or remove data.
         </p>
@@ -461,8 +461,8 @@
         <h3>4.4 File Storage</h3>
         <p>
           We wanted users to be able to upload and store relatively large files. The maximum document size in MongoDB is 16MB, which would make 
-          storing larger files like high-resolution images impossible. However, it is possible to use GridFS with MongoDB to store larger files 
-          [CITATION]. The files are broken into chunks that each get stored as a separate document. Alternatively, AWS offers S3, which allows 
+          storing larger files like high-resolution images impossible. However, it is possible to use GridFS with MongoDB to store larger files<sup><a href="https://www.mongodb.com/docs/manual/core/gridfs/">9</a></sup>. 
+          The files are broken into chunks that each get stored as a separate document. Alternatively, AWS offers S3, which allows 
           users to easily store any type of object. While using MongoDB and GridFS might be more portable to other contexts, we thought that using 
           S3 would prove optimal because of its flexibility and ease of use. Specifically, we decided to upload files to a public-read S3 bucket 
           and save the S3 URL in our database. When a user of Bastion wants to retrieve a file from their frontend code, then they can directly 
@@ -546,7 +546,7 @@
         </p>
         <br />
 
-        <h2 class="h2">5 Bastion Architecture</h2>
+        <h2 class="h2 five">5 Bastion Architecture</h2>
         <figure>
           <img src="assets/images/26_full_arch.png" class="case-study-image" />
           <figcaption>
@@ -556,8 +556,8 @@
         <br />
         <p>
           Now that we’ve decided on the basic AWS resources needed to build Bastion, we need to create a network where they can be deployed. 
-          First, we define a Virtual Private Cloud (VPC) where all of the Bastion resources live [CITATION]. The VPC is a logically isolated 
-          section of the AWS cloud that keeps Bastion separate from other AWS resources in your account. We made sure to allocate our 
+          First, we define a Virtual Private Cloud (VPC) where all of the Bastion resources live<sup><a href="https://www.infoq.com/articles/aws-vpc-explained/#:~:text=as%20Availability%20Zones.-,Subnet,Zone%20and%20cannot%20span%20zones.">10</a></sup>. 
+          The VPC is a logically isolated section of the AWS cloud that keeps Bastion separate from other AWS resources in your account. We made sure to allocate our 
           Classless Inter-Domain Routing (CIDR) block so that there are many available IP addresses in the VPC. If a Bastion user needs to 
           modify Bastion and allocate more AWS resources or expand into new Availability Zones, they won’t run out of IP addresses 
           available to the VPC.
@@ -590,11 +590,11 @@
           the Admin App needs to access a public Elastic Container Registry (ECR) to pull the Bastion Server image when creating a new 
           Bastion Server instance. The Lambdas that we use for Cloud Code also need public internet access to integrate with third-party APIs. 
           To solve this problem, we set up a Network Address Translation (NAT) gateway, which uses IP masquerading to route requests from 
-          resources in private subnets to the public internet [CITATION].
+          resources in private subnets to the public internet<sup><a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-scenarios.html">11</a></sup>.
         </p>
         <br />
 
-        <h2 class="h2">6 Bastion Implementation</h2>
+        <h2 class="h2 six">6 Bastion Implementation</h2>
         <br />
 
         <h3>6.1 Multi-Instance Architecture</h3>
@@ -616,7 +616,7 @@
         </figure>
         <br />
         
-        <h4>6.1.1 Keeping Track of AWS Resources</h4>
+        <h4>Keeping Track of AWS Resources</h4>
         <p>
           The CloudFormation script in Bastion CLI provisions the AWS resources necessary for the Admin App. Additionally, the script creates 
           many AWS resources that are used each time a Bastion Server instance is created.
@@ -624,9 +624,9 @@
         <br />
         <p>
           For example, each Bastion Server instance is assigned an Identity and Access Management (IAM) Role that specifies what actions it can 
-          and cannot do [CITATION]. Instead of generating a new IAM Role each time we create a Bastion Server instance, we create a reusable 
+          and cannot do<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/task-iam-roles.html">12</a></sup>. Instead of generating a new IAM Role each time we create a Bastion Server instance, we create a reusable 
           IAM Role when we create the Admin App. Then, when a new Bastion Server is created, the Admin App needs access to the reusable IAM Role 
-          to assign it to the new Bastion Server. One option would be to use the AWS Node.js SDK to call the iam.getRole function [CITATION], 
+          to assign it to the new Bastion Server. One option would be to use the AWS Node.js SDK to call the <code>iam.getRole</code> function<sup><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IAM.html#getRole-property">13</a></sup>, 
           passing in the Role name as an argument, but this would require hard coding the Role name in the Admin App and making an API call. 
           Instead, we directly pass the IAM Role into the Admin App as an environment variable in the CloudFormation script. This lets us avoid 
           hard coding values in our code and avoid an unnecessary API call. We effectively used this strategy to keep track of many AWS resources 
@@ -642,7 +642,7 @@
         </figure>
         <br />
 
-        <h4>6.1.2 Communication Between AWS Resources</h4>
+        <h4>Communication Between AWS Resources</h4>
         <p>
           Now that the Admin App is deployed, we need to create a Bastion Server instance. Once again, we turn to a CloudFormation script, 
           which deploys both the Bastion Server Docker image and the MongoDB Docker image, each in their own ECS Service. One challenge we 
@@ -652,7 +652,7 @@
         <br />
         <p>
           Both the Bastion Server and its database are deployed in their own ECS Service, so we need to connect two ECS Services. AWS recommends 
-          three different strategies for this [CITATION]. One option is to use an internal Load Balancer, which would server as a centralized 
+          three different strategies for this<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/networking-connecting-services.html">14</a></sup>. One option is to use an internal Load Balancer, which would server as a centralized 
           location for managing all connections between each Service.
         </p>
         <br />
@@ -681,13 +681,12 @@
         <br />
         <p>
           When a Bastion Server instance is created, it is given a name by the Bastion user. This name is then used to create a new private 
-          DNS namespace for the Bastion Server instance. For example, if Alice created a new Bastion Server named Wonderland, then this 
-          Bastion Server would be discoverable within AWS as app-server.Wonderland and its database would be discoverable as db.Wonderland. 
+          DNS namespace for the Bastion Server instance. For example, if Alice created a new Bastion Server named <code>Wonderland</code>, then this 
+          Bastion Server would be discoverable within AWS as <code>app-server.Wonderland</code> and its database would be discoverable as <code>db.Wonderland</code>. 
           So connecting the Bastion Server to its database using mongoose would look something like this:
         </p>
         <figure>
-          <p>mongoose.connect('db.Wonderland:27017/myDatabase'); </p>
-          <img src="???" class="case-study-image" />
+          <img src="assets/images/39_cloudmap_example.png" class="case-study-image" />
           <figcaption>
             Figure 27. Example of using Cloud Map to connect to a database running on port 27017.
           </figcaption>
@@ -699,35 +698,32 @@
           wanted to send a GET request to port 3001 using axios, it would look something like this:
         </p>
         <figure>
-          <p>axios.get('http://app-server.Wonderland:3001/')</p>
-            <p>.then(response => // ... )</p>
-            <p>.catch(error => // ... ); </p>
-          <img src="???" class="case-study-image" />
+          <img src="assets/images/40_axios_example.png" class="case-study-image" />
           <figcaption>
             Figure 28. Example of using axios to send a GET request from the Admin App to port 3001 of a Bastion Server instance.
           </figcaption>
         </figure>
         <br />
 
-        <h4>6.1.3 Routing</h4>
+        <h4>Routing</h4>
         <p>
           With service discovery configured, the Admin App can now readily communicate with any Bastion Server instance, and each Bastion Server 
           instance can communicate with its database. But this communication configuration only works within AWS. Now we need to determine how to 
           route traffic from the public internet to the appropriate AWS resource. For example, if Alice has two Bastion Servers, one named 
-          Wonderland and one named TeaParty, how would she send a request to her Wonderland Bastion Server from an application running on her laptop? 
+          <code>Wonderland</code> and one named <code>TeaParty</code>, how would she send a request to her <code>Wonderland</code> Bastion Server from an application running on her laptop? 
           Our solution is to use route-based load balancing, where the route path of the request determines which AWS resource that the request 
           is sent to. Since we host the Admin App and all Bastion Server instances behind a single Application Load Balancer (ALB), 
-          this means adding ALB Listener Rules [CITATION].
+          this means adding ALB Listener Rules<sup><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">15</a></sup>.
         </p>
         <br />
         <p>
           When a user creates a new Bastion Server instance, she gives it a name, and this name uniquely identifies that Bastion Server. We already 
           saw how this is useful in a service discovery context, and it is also useful for routing. Each time a new Bastion Server is created, 
-          we create a new ALB Listener Rule in our CloudFormation script. This new Listener Rule routes any path that matches /server/:name/* to 
-          the appropriate Bastion Server. Using the same example as above, if Alice creates a Bastion Server named Wonderland, then all routes 
-          that match /server/Wonderland/*, would be routed to her newly created Bastion Server, where * is a catch-all wildcard. If she made another
-          Bastion Server called TeaParty, then all routes that match /server/TeaParty/* would be sent to that server. Any requests that need to be 
-          sent to the Admin App would need to match /admin/*.
+          we create a new ALB Listener Rule in our CloudFormation script. This new Listener Rule routes any path that matches <code>/server/:name/*</code> to 
+          the appropriate Bastion Server. Using the same example as above, if Alice creates a Bastion Server named <code>Wonderland</code>, then all routes 
+          that match <code>/server/Wonderland/*</code>, would be routed to her newly created Bastion Server, where <code>*</code> is a catch-all wildcard. If she made another
+          Bastion Server called <code>TeaParty</code>, then all routes that match <code>/server/TeaParty/*</code> would be sent to that server. Any requests that need to be 
+          sent to the Admin App would need to match <code>/admin/*</code>.
         </p>
         <br />
 
@@ -748,7 +744,7 @@
         </figure>
         <br />
         <p>
-          An alternative strategy to using session cookies would be to use JSON web tokens (JWT) to keep track of user sessions [CITATION]. 
+          An alternative strategy to using session cookies would be to use JSON web tokens (JWT) to keep track of user sessions<sup><a href="https://hackernoon.com/using-session-cookies-vs-jwt-for-authentication-sd2v3vci">16</a></sup>. 
           Upon successful login, the server generates an access token that stores the user’s ID and session expiration in an encrypted form. 
           Then, for each subsequent request, the client sends the JWT, the server decrypts it, and then determines if the session is still valid. 
           One advantage of this strategy is that the server doesn’t have to keep track of sessions because the session information is stored directly 
@@ -760,10 +756,10 @@
         </p>
         <br />
 
-        <h4>6.2.1 Secure Cookies</h4>
+        <h4>Secure Cookies</h4>
         <p>
           To further secure Bastion, we decided to require HTTPS. Once a request from the public internet reaches the Application Load Balancer (ALB) 
-          we perform SSL offloading [CITATION]. In other words, because we’re using HTTPS, a request is encrypted until it reaches the ALB. Then, 
+          we perform SSL offloading<sup><a href="https://avinetworks.com/glossary/ssl-offload/">17</a></sup>. In other words, because we’re using HTTPS, a request is encrypted until it reaches the ALB. Then, 
           the ALB decrypts the request and forwards it using HTTP to the appropriate AWS resource within the Bastion VPC. If we didn’t perform SSL 
           offloading at the ALB, then we would need to generate SSL certificates for the Admin app and each Bastion Server, which would be difficult 
           to configure. Additionally, the encryption and decryption required at each network hop would increase the load on the servers, 
@@ -781,8 +777,8 @@
           Using HTTPS enables us to further increase Bastion’s security by allowing us to use secure cookies for user sessions—cookies that are only 
           transmittable over HTTPS. But using secure cookies presents a problem. Since we are performing SSL offloading, requests are converted from 
           HTTPS to HTTP when they pass through the ALB. Since secure cookies must be sent over HTTPS, the user session cookies are dropped during SSL 
-          offloading. Thankfully, we were able to configure Bastion Server to overcome this problem. By configuring Express with app.set('trust proxy', 
-          1), we tell our server that there is one proxy in front of it (our ALB) and that it can trust that proxy to pass secure cookies over HTTP [CITATION].
+          offloading. Thankfully, we were able to configure Bastion Server to overcome this problem. By configuring Express with <code>app.set('trust proxy', 
+          1)</code>, we tell our server that there is one proxy in front of it (our ALB) and that it can trust that proxy to pass secure cookies over HTTP<sup><a href="https://expressjs.com/en/guide/behind-proxies.html">18</a></sup>.
         </p>
         <br />
 
@@ -792,11 +788,6 @@
           collections and then perform standard CRUD operations on them, so we need a way to dynamically and programmatically generate database collections.
         </p>
         <br />
-        <p>
-          This is possible because Timestream provides a SQL-like language to query this data. This query language is
-          extremely powerful because not only is it already familiar to most developers, but also it adds some very
-          powerful functions that work with time-series datasets.
-        </p>
         <figure>
           <img src="assets/images/12_dynamic_route_generation.png" class="case-study-image" />
           <figcaption>
@@ -806,23 +797,23 @@
         <br />
         <p>
           In Express, server endpoints are often defined in a router. Typically, these endpoints are defined directly in a Node.js file with the path as 
-          the first argument, and the function to invoke as the second argument. So to have routes for a collection called items, we would want to create 
+          the first argument, and the function to invoke as the second argument. So to have routes for a collection called <code>items</code>, we would want to create 
           a router that looked like this:
         </p>
         <figure>
-          <img src="???" class="case-study-image" />
+          <img src="assets/images/41_get_and_post_example.png" class="case-study-image" />
           <figcaption>
             Figure 32. Example of creating GET and POST server endpoints with the Express framework.
           </figcaption>
         </figure>
         <br />
         <p>
-          But if we generate the items collection while the server is running, we won’t be able to directly code those routes in a Node.js 
+          But if we generate the <code>items</code> collection while the server is running, we won’t be able to directly code those routes in a Node.js 
           file like we did above. Our solution to this was to define an initially empty router object and then create a function that mutates 
           this router, adding CRUD functionality when a new collection is made:
         </p>
         <figure>
-          <img src="???" class="case-study-image" />
+          <img src="assets/images/42_dynamic_route_generation.png" class="case-study-image" />
           <figcaption>
             Figure 33. Part of our code for dynamically generating CRUD routes for database collections.
           </figcaption>
@@ -839,7 +830,7 @@
         <p>
           Besides data manipulation, another key feature of Bastion is Cloud Code—allowing users to define their own custom functions that can be called 
           from their frontend code. As mentioned above, we decided to use AWS Lambda functions for Cloud Code, but we still need an implementation strategy. 
-          One option would be to use Docker containers [CITATION]. With this strategy, a Docker image would need to be created, uploaded to 
+          One option would be to use Docker containers<sup><a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">19</a></sup>. With this strategy, a Docker image would need to be created, uploaded to 
           AWS Elastic Container Registry (ECR), and then a new Lambda function would be defined based on that container image. An alternative strategy 
           would be to intake the custom Cloud Code function as a zip file, upload it to an S3 bucket, and then create a new Lambda function based on 
           the zip file. We reasoned that uploading a zip file is a more straightforward process than generating a Docker image and pushing it to ECR, 
@@ -866,12 +857,12 @@
         </figure>
         <br />
 
-        <h2 class="h2">7 Using Bastion</h2>
+        <h2 class="h2 seven">7 Using Bastion</h2>
         <br />
 
         <h3>7.1 Bastion CLI</h3>
 
-        <h4>7.1.1 Pre-requisites</h4>
+        <h4>Pre-requisites</h4>
         <ol>
           <li>You will need Node and npm installed on your machine.</li>
           <li>The AWS Command Line Interface (CLI) must be installed on your system and it must be configured using your AWS account credentials.</li>
@@ -883,16 +874,10 @@
         </figure>
         <br />
 
-        <h4>7.1.2 Installation</h4>
-        <p>npm install -g bastion-baas-cli</p>
+        <h4>Installation</h4>
+        <p>To install the CLI, use <code>npm install -g bastion-baas-cli</code>.</p>
         <br />
-        <p>bastion deploy</p>
-        <br />
-        <figure>
-          <img src="assets/images/terminalv4.gif" class="case-study-image demo" />
-          <figcaption>Figure 37. Running the bastion deploy command.</figcaption>
-        </figure>
-        <br />
+        <p><code class="code-bold">bastion deploy</code></p>
         <p>
           After executing this command, you will be prompted for the following information:
         </p>
@@ -907,13 +892,18 @@
           After providing this information, the Admin App will be created in your AWS account and will be accessible at the domain that you provided
            once the AWS resources have been deployed.
         </p>
+        <figure>
+          <img src="assets/images/terminalv4.gif" class="case-study-image" />
+          <figcaption>Figure 37. Running the bastion deploy command.</figcaption>
+        </figure>
+
         <br />
-        <p>bastion show</p>
+        <p><code class="code-bold">bastion show</code></p>
         <p>
           This command will show the domain that your Bastion can be reached at, and your Admin App username and password.
         </p>
         <br />
-        <p>bastion destroy</p>
+        <p><code class="code-bold">bastion destroy</code></p>
         <p>
           You will be prompted to select an Admin App, and then the AWS resources associated with the selected Bastion Admin App will be deprovisioned.
         </p>
@@ -921,9 +911,9 @@
 
         <h3>7.2 Admin App</h3>
         <figure>
-          <img src="???" class="case-study-image demo" />
+          <img src="assets/images/43_admin_dashboard.gif" class="case-study-image demo" />
           <figcaption>
-            Figure 38. Logging in to the Admin App, viewing the API key for the ShoppingCart Bastion Server, and creating a ChatApp Bastion Server.
+            Figure 38. Viewing the API key for the ShoppingCart Bastion Server, and creating a ChatApp Bastion Server for a logged-in admin.
           </figcaption>
         </figure>
         <br />
@@ -945,7 +935,7 @@
           your users, files, and Cloud Code functions.
         </p>
         <figure>
-          <img src="???" class="case-study-image demo" />
+          <img src="assets/images/44_cloud_code.gif" class="case-study-image demo" />
           <figcaption>
             Figure 40. Navigating to a Bastion Server instance, viewing current Cloud Code functions, and creating a new Cloud Code function.
           </figcaption>
@@ -953,7 +943,7 @@
         <br />
 
         <h3>7.3 Bastion SDK</h3>
-        <figure>
+        <figure class="sdk">
           <img src="assets/images/15_sdk_code.png" class="case-study-image demo" />
           <figcaption>
             Figure 41. Sample code showing how a client would initialize the Bastion SDK to use in their frontend application.
@@ -961,40 +951,128 @@
         </figure>
         <br />
 
-        <h4>7.3.1 Authentication</h4>
+        <h4>Authentication</h4>
+
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td><code>sdk.auth.register(username, email, password)</code></td>
+            <td>Creates a new user.</td>
+          </tr>
+          <tr>
+            <td><code>sdk.auth.login(username, password)</code></td>
+            <td>Creates a session for the user using a secure cookie.</td>
+          </tr>
+          <tr>
+            <td><code>sdk.auth.logout()</code></td>
+            <td>Ends the user’s session by invalidating the cookie.</td>
+          </tr>
+        </table>
+
         <br />
-        <h4>7.3.2 Database</h4>
+        <h4>Database</h4>
+
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td><code>sdk.db.getAllItems(collectionName)</code></td>
+            <td>Returns all items in a collection as a JSON object.</td>
+          </tr>
+          <tr>
+            <td><code>sdk.db.getItem(collectionName, itemId)</code></td>
+            <td>Returns a single item in a collection as a JSON object.</td>
+          </tr>
+          <tr>
+            <td><code>sdk.db.createItem(collectionName, data)</code></td>
+            <td>Returns a single item in a collection as a JSON object.</td>
+          </tr>
+          <tr>
+            <td><code>sdk.db.overwriteItem(collectionName, itemId, data)</code></td>
+            <td>Overwrites a database record with the passed-in JSON object. Only the key–value pairs in <code>data</code> are changed.</td>
+          </tr>
+          <tr>
+            <td><code>sdk.db.updateItem(collectionName, itemId, data)</code></td>
+            <td>Updates a database record with the passed-in JSON object. The entire record is replaced.</td>
+          </tr>
+          <tr>
+            <td><code>sdk.db.deleteItem(collectionName, itemId)</code></td>
+            <td>Deletes a database record.</td>
+          </tr>
+        </table>
+
         <br />
-        <h4>7.3.3 Cloud Code</h4>
+        <h4>Cloud Code</h4>
+
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td><code>sdk.ccf.run(cloudFunctionName, parameters)</code></td>
+            <td>Runs the specified Cloud Code function and returns the return value of the function.</td>
+          </tr>
+        </table>
+
         <br />
-        <h4>7.3.4 File Storage</h4>
+        <h4>File Storage</h4>
+
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td><code>sdk.storage.getAllFiles()</code></td>
+            <td>Returns information about all files, each file is represented as a JSON object with the filename and S3 URL.</td>
+          </tr>
+          <tr>
+            <td><code>sdk.storage.getFile(fileId)</code></td>
+            <td>Returns information about all files, each file is represented as a JSON object with the filename and S3 URL.</td>
+          </tr>
+          <tr>
+            <td><code>sdk.storage.uploadFile(data, name)</code></td>
+            <td>Uploads a file to S3. The <code>data</code> expects the file as <code>multipart/form-data.</code></td>
+          </tr>
+          <tr>
+            <td><code>sdk.storage.deleteFile(fileId)</code></td>
+            <td>Deletes a file.</td>
+          </tr>
+        </table>
+
         <br />
 
-        <h2 class="h2">8 Future Work</h2>
+        <h2 class="h2 eight">8 Future Work</h2>
         <br />
 
-        <h3>8.1 Whitelist Frontend Domains</h3>
+        <h4>Whitelist Frontend Domains</h3>
         <p>
           Currently, any frontend domain that sends the correct API key has access to Bastion Server. We want to restrict access to Bastion Server to 
           registered domains so that even if the API key fell into the wrong hands, it wouldn’t be usable by unregistered frontend domains.
         </p>
         <br />
 
-        <h3>8.2 More SDKs</h3>
+        <h4>More SDKs</h3>
         <p>
           Currently, the Bastion SDK is only available for JavaScript, but we would like to expand it and make an SDK available for 
           Swift for iOS development and Kotlin for Android development.
         </p>
         <br />
 
-        <h3>8.3 Redis for Sessions</h3>
+        <h4>Redis for Sessions</h3>
         <p>
           Currently, our session information is stored in MongoDB, but to optimize read and write speed we could utilize Redis for storing 
           our session information.
         </p>
         <br />
 
-        <h3>8.4 Multiple Availability Zones</h3>
+        <h4>Multiple Availability Zones</h3>
         <p>
           Currently, Bastion is deployed to one Availability Zone in AWS. To improve availability, we want to deploy Bastion to at least 
           one more Availability Zone.
@@ -1002,7 +1080,7 @@
         <br />
 
         <!-- Section 9 -->
-        <h2 class="h2">9 Team</h2>
+        <h2 class="h2 nine">9 Team</h2>
         <br>
         <br>
         <div class="section team-section">
@@ -1024,21 +1102,21 @@
                       </div>
                       <ul class="team-member-icons">
                         <li>
-                          <a href="mailto:awcrotwell@gmail.com" target="_blank">
+                          <a href="mailto:ahtrotta@gmail.com" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-envelope"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://awcrotwell.com" target="_blank">
+                          <a href="https://adamtrotta.com/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-globe"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://linkedin.com/in/awcrotwell" target="_blank">
+                          <a href="https://www.linkedin.com/in/adam-trotta-18506b43/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fab fa-linkedin"></i>
                             </span>
@@ -1054,21 +1132,21 @@
                       </div>
                       <ul class="team-member-icons">
                         <li>
-                          <a href="mailto:petertdelia@gmail.com" target="_blank">
+                          <a href="mailto:sunguralican@gmail.com" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-envelope"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://peterdelia.com" target="_blank">
+                          <a href="https://asungur.com/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-globe"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://linkedin.com/in/peter-delia" target="_blank">
+                          <a href="https://www.linkedin.com/in/sunguralican/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fab fa-linkedin"></i>
                             </span>
@@ -1091,14 +1169,14 @@
                           </a>
                         </li>
                         <li>
-                          <a href="https://nlicalzi.com" target="_blank">
+                          <a href="https://site-placeholder.com/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-globe"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://linkedin.com/in/nicholaslicalzi" target="_blank">
+                          <a href="https://linkedin.com/in/linkedin-placeholder" target="_blank">
                             <span class="team-member-icon">
                               <i class="fab fa-linkedin"></i>
                             </span>
@@ -1114,21 +1192,21 @@
                       </div>
                       <ul class="team-member-icons">
                         <li>
-                          <a href="mailto:angeljrbt@gmail.com" target="_blank">
+                          <a href="mailto:reillyknut@gmail.com" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-envelope"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://angelruizbates.com/" target="_blank">
+                          <a href="https://reillyk.com/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fas fa-globe"></i>
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="https://www.linkedin.com/in/angel-ruiz-bates-1b68a2142/" target="_blank">
+                          <a href="https://www.linkedin.com/in/reilly-knutson-b6a771a7/" target="_blank">
                             <span class="team-member-icon">
                               <i class="fab fa-linkedin"></i>
                             </span>
@@ -1142,12 +1220,39 @@
             </div>
           </div>
         </div>
+
+        <!-- Section 10 -->
+        <h2 class="h2 ten">10 References</h2>
+
+        <ol class="references">
+          <li><a href="https://github.com/appwrite/appwrite/issues/307">https://github.com/appwrite/appwrite/issues/307</a></li>
+          <li><a href="https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/">https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/</a></li>
+          <li><a href="https://devblogs.microsoft.com/appcenter/app-center-mbaas-retirement/">https://devblogs.microsoft.com/appcenter/app-center-mbaas-retirement/</a></li>
+          <li><a href="https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/">https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/</a></li>
+          <li><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html</a></li>
+          <li><a href="http://highscalability.com/blog/2010/12/6/what-the-heck-are-you-actually-using-nosql-for.html" target="_blank">http://highscalability.com/blog/2010/12/6/what-the-heck-are-you-actually-using-nosql-for.html</a></li>
+          <li><a href="https://docs.docker.com/storage/volumes/" target="_blank">https://docs.docker.com/storage/volumes/</a></li>
+          <li><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html" target="_blank">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html</a></li>
+          <li><a href="https://www.mongodb.com/docs/manual/core/gridfs/" target="_blank">https://www.mongodb.com/docs/manual/core/gridfs/</a></li>
+          <li><a href="https://www.infoq.com/articles/aws-vpc-explained/#:~:text=as%20Availability%20Zones.-,Subnet,Zone%20and%20cannot%20span%20zones." target="_blank">https://www.infoq.com/articles/aws-vpc-explained/#:~:text=as%20Availability%20Zones.-,Subnet,Zone%20and%20cannot%20span%20zones.</a></li>
+          <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-scenarios.html" target="_blank">https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-scenarios.html</a></li>
+          <li><a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/task-iam-roles.html" target="_blank">https://docs.aws.amazon.com/AmazonECS/latest/userguide/task-iam-roles.html</a></li>
+          <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IAM.html#getRole-property" target="_blank">https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IAM.html#getRole-property</a></li>
+          <li><a href="https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/networking-connecting-services.html" target="_blank">https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/networking-connecting-services.html</a></li>
+          <li><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules" target="_blank">https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules</a></li>
+          <li><a href="https://hackernoon.com/using-session-cookies-vs-jwt-for-authentication-sd2v3vci" target="_blank">https://hackernoon.com/using-session-cookies-vs-jwt-for-authentication-sd2v3vci</a></li>
+          <li><a href="https://avinetworks.com/glossary/ssl-offload/" target="_blank">https://avinetworks.com/glossary/ssl-offload/</a></li>
+          <li><a href="https://expressjs.com/en/guide/behind-proxies.html" target="_blank">https://expressjs.com/en/guide/behind-proxies.html</a></li>
+          <li><a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html" target="_blank">https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html</a></li>
+        </ol>
+
     </article>
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=5f71dd169010d641cf65485c"
       type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"></script>
     <script src="https://assets.website-files.com/5f71dd169010d641cf65485c/js/webflow.6af2032ff.js"
       type="text/javascript"></script>
+    <script src="assets/scripts/activeLink.js"></script>
     <script>
       /*!
        * toc - jQuery Table of Contents Plugin
