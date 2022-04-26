@@ -300,6 +300,12 @@ label {
   width: 100%;
 }
 
+.case-study-image-2 {
+  margin: 40px auto;
+  display: block;
+  width: 70%;
+}
+
 .demo {
   border-radius: 5px;
 }
