@@ -158,7 +158,7 @@
           API key. If Fortress.io decides to use a BaaS provider without Cloud Code then they won’t be able to securely integrate Stripe into their 
           application. But if their BaaS provider does have Cloud Code, then the Fortress.io engineers can define a custom function in the backend with 
           access to the Stripe secret API key and then they can call that function from the frontend using an HTTP request. The advantages of Cloud Code 
-          have made it an increasingly important BaaS feature<sup><a href="https://github.com/appwrite/appwrite/issues/307">1</a></sup>.
+          have made it an increasingly important BaaS feature.<sup><a href="https://github.com/appwrite/appwrite/issues/307" target="_blank">1</a></sup>
         </p>
         <figure>
           <img src="assets/images/5_ccf_execute.png" class="case-study-image" />
@@ -189,8 +189,8 @@
           implement your application around the interfaces provided by the managed BaaS service. This makes it difficult if you ever need to migrate 
           your application away from the managed BaaS service. For example, if the BaaS provider ceases to exist, then you will have to create a 
           backend from scratch or figure out how to migrate your application to a new BaaS provider. This has happened several times in recent years, 
-          including when Facebook dropped support for Parse in 2017<sup><a href="https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/">2</a></sup> and when Microsoft retired their Mobile-Backend-as-a-Service 
-          in 2020<sup><a href="https://devblogs.microsoft.com/appcenter/app-center-mbaas-retirement/">3</a></sup>.
+          including when Facebook dropped support for Parse in 2017<sup><a href="https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/" target="_blank">2</a></sup> and when Microsoft retired their Mobile-Backend-as-a-Service 
+          in 2020.<sup><a href="https://devblogs.microsoft.com/appcenter/app-center-mbaas-retirement/" target="_blank">3</a></sup>
         </p>
         <figure>
           <img src="assets/images/6_compare_baas.png" class="case-study-image-2" />
@@ -371,7 +371,7 @@
         <h3>4.2 Container Orchestration</h3>
         <p>
           Using containers for our application meant deciding on how to manage, network, and organize those containers. Since we are using AWS for our 
-          infrastructure, this meant that we had to decide between Elastic Container Service (ECS) and Elastic Kubernetes Service (EKS)<sup><a href="https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/">4</a></sup>. 
+          infrastructure, this meant that we had to decide between Elastic Container Service (ECS) and Elastic Kubernetes Service (EKS).<sup><a href="https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/" target="_blank">4</a></sup> 
           AWS advertises ECS as the simpler container orchestration tool—an opinionated solution for running containers at scale that decreases the 
           number of decisions required for compute, network, and security configurations without sacrificing features. Alternatively, EKS is the 
           more flexible solution, leveraging the massive open-source Kubernetes ecosystem to allow for fine-grained control over how the containers 
@@ -391,7 +391,7 @@
 
         <h4>Fargate vs EC2</h4>
         <p>
-          There are two ways to run the containers on ECS: Fargate and EC2<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html">5</a></sup>. With EC2, you are responsible for provisioning, configuring, 
+          There are two ways to run the containers on ECS: Fargate and EC2.<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html" target="_blank">5</a></sup> With EC2, you are responsible for provisioning, configuring, 
           and scaling your own cluster of EC2 instances for running the containers. You have to choose server types, decide when to scale your 
           clusters, and optimize cluster packing. Fargate, on the other hand, is much simpler and there is much less configuration and 
           maintenance — you only have to think about the containers.
@@ -416,7 +416,7 @@
           Now that we had decided to use ECS Fargate for container orchestration, we needed to decide how to persist application data. 
           Specifically, for a Bastion Server instance, we needed to determine what kind of database to use. While relational databases are 
           good for structured data and flexible queries, we quickly settled on using a NoSQL database because NoSQL databases have more flexible 
-          schema<sup><a href="http://highscalability.com/blog/2010/12/6/what-the-heck-are-you-actually-using-nosql-for.html">6</a></sup>. We wouldn’t have to force users to define the schema and relationships of their databases before they use them, 
+          schema.<sup><a href="http://highscalability.com/blog/2010/12/6/what-the-heck-are-you-actually-using-nosql-for.html" target="_blank">6</a></sup> We wouldn’t have to force users to define the schema and relationships of their databases before they use them, 
           they could just create a collection and start manipulating their data right away. The flexibility and ease of use of NoSQL fit well 
           with our goal of decreasing configuration and increasing development speed.
         </p>
@@ -441,10 +441,10 @@
         <h4>Persisting Data with Elastic File System (EFS)</h4>
         <p>
           Running a database Docker image in a container comes with some challenges. When data is written to disk in a container, it is stored 
-          on a writeable container layer, meaning that the data doesn’t persist when that container no longer exists<sup><a href="https://docs.docker.com/storage/volumes/">7</a></sup>. One solution 
+          on a writeable container layer, meaning that the data doesn’t persist when that container no longer exists.<sup><a href="https://docs.docker.com/storage/volumes/" target="_blank">7</a></sup> One solution 
           is to use Docker Volumes to persist the data. When defining a Docker Volume for a container, the data in the specified directory gets 
           persisted to the host machine. But this means that if our MongoDB container gets restarted on a different underlying host, all of 
-          the database data will be lost. To overcome this challenge, we use AWS Elastic File System (EFS)<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">8</a></sup>. We mount EFS to the 
+          the database data will be lost. To overcome this challenge, we use AWS Elastic File System (EFS).<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html" target="_blank">8</a></sup> We mount EFS to the 
           <code>/data/db</code> directory in our MongoDB container, so that MongoDB uses EFS when it reads or writes data, instead of the local, ephemeral 
           container storage. Now, the data is persisted even if the container is restarted. This solution also means that we don’t have to worry 
           about the size of our user’s data, since EFS will automatically grow and shrink as users add or remove data.
@@ -461,7 +461,7 @@
         <h3>4.4 File Storage</h3>
         <p>
           We wanted users to be able to upload and store relatively large files. The maximum document size in MongoDB is 16MB, which would make 
-          storing larger files like high-resolution images impossible. However, it is possible to use GridFS with MongoDB to store larger files<sup><a href="https://www.mongodb.com/docs/manual/core/gridfs/">9</a></sup>. 
+          storing larger files like high-resolution images impossible. However, it is possible to use GridFS with MongoDB to store larger files.<sup><a href="https://www.mongodb.com/docs/manual/core/gridfs/" target="_blank">9</a></sup> 
           The files are broken into chunks that each get stored as a separate document. Alternatively, AWS offers S3, which allows 
           users to easily store any type of object. While using MongoDB and GridFS might be more portable to other contexts, we thought that using 
           S3 would prove optimal because of its flexibility and ease of use. Specifically, we decided to upload files to a public-read S3 bucket 
@@ -556,7 +556,7 @@
         <br />
         <p>
           Now that we’ve decided on the basic AWS resources needed to build Bastion, we need to create a network where they can be deployed. 
-          First, we define a Virtual Private Cloud (VPC) where all of the Bastion resources live<sup><a href="https://www.infoq.com/articles/aws-vpc-explained/#:~:text=as%20Availability%20Zones.-,Subnet,Zone%20and%20cannot%20span%20zones.">10</a></sup>. 
+          First, we define a Virtual Private Cloud (VPC) where all of the Bastion resources live.<sup><a href="https://www.infoq.com/articles/aws-vpc-explained/#:~:text=as%20Availability%20Zones.-,Subnet,Zone%20and%20cannot%20span%20zones." target="_blank">10</a></sup> 
           The VPC is a logically isolated section of the AWS cloud that keeps Bastion separate from other AWS resources in your account. We made sure to allocate our 
           Classless Inter-Domain Routing (CIDR) block so that there are many available IP addresses in the VPC. If a Bastion user needs to 
           modify Bastion and allocate more AWS resources or expand into new Availability Zones, they won’t run out of IP addresses 
@@ -590,7 +590,7 @@
           the Admin App needs to access a public Elastic Container Registry (ECR) to pull the Bastion Server image when creating a new 
           Bastion Server instance. The Lambdas that we use for Cloud Code also need public internet access to integrate with third-party APIs. 
           To solve this problem, we set up a Network Address Translation (NAT) gateway, which uses IP masquerading to route requests from 
-          resources in private subnets to the public internet<sup><a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-scenarios.html">11</a></sup>.
+          resources in private subnets to the public internet.<sup><a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-scenarios.html" target="_blank">11</a></sup>
         </p>
         <br />
 
@@ -624,9 +624,11 @@
         <br />
         <p>
           For example, each Bastion Server instance is assigned an Identity and Access Management (IAM) Role that specifies what actions it can 
-          and cannot do<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/task-iam-roles.html">12</a></sup>. Instead of generating a new IAM Role each time we create a Bastion Server instance, we create a reusable 
+          and cannot do.<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/task-iam-roles.html" target="_blank">12</a></sup> 
+          Instead of generating a new IAM Role each time we create a Bastion Server instance, we create a reusable 
           IAM Role when we create the Admin App. Then, when a new Bastion Server is created, the Admin App needs access to the reusable IAM Role 
-          to assign it to the new Bastion Server. One option would be to use the AWS Node.js SDK to call the <code>iam.getRole</code> function<sup><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IAM.html#getRole-property">13</a></sup>, 
+          to assign it to the new Bastion Server. One option would be to use the AWS Node.js SDK to call the <code>iam.getRole</code> 
+          function,<sup><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IAM.html#getRole-property" target="_blank">13</a></sup> 
           passing in the Role name as an argument, but this would require hard coding the Role name in the Admin App and making an API call. 
           Instead, we directly pass the IAM Role into the Admin App as an environment variable in the CloudFormation script. This lets us avoid 
           hard coding values in our code and avoid an unnecessary API call. We effectively used this strategy to keep track of many AWS resources 
@@ -652,7 +654,8 @@
         <br />
         <p>
           Both the Bastion Server and its database are deployed in their own ECS Service, so we need to connect two ECS Services. AWS recommends 
-          three different strategies for this<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/networking-connecting-services.html">14</a></sup>. One option is to use an internal Load Balancer, which would server as a centralized 
+          three different strategies for this.<sup><a href="https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/networking-connecting-services.html" target="_blank">14</a></sup> 
+          One option is to use an internal Load Balancer, which would server as a centralized 
           location for managing all connections between each Service.
         </p>
         <br />
@@ -713,7 +716,7 @@
           <code>Wonderland</code> and one named <code>TeaParty</code>, how would she send a request to her <code>Wonderland</code> Bastion Server from an application running on her laptop? 
           Our solution is to use route-based load balancing, where the route path of the request determines which AWS resource that the request 
           is sent to. Since we host the Admin App and all Bastion Server instances behind a single Application Load Balancer (ALB), 
-          this means adding ALB Listener Rules<sup><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">15</a></sup>.
+          this means adding ALB Listener Rules.<sup><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules" target="_blank">15</a></sup>
         </p>
         <br />
         <p>
@@ -744,7 +747,8 @@
         </figure>
         <br />
         <p>
-          An alternative strategy to using session cookies would be to use JSON web tokens (JWT) to keep track of user sessions<sup><a href="https://hackernoon.com/using-session-cookies-vs-jwt-for-authentication-sd2v3vci">16</a></sup>. 
+          An alternative strategy to using session cookies would be to use JSON web tokens (JWT) to keep track of user 
+          sessions.<sup><a href="https://hackernoon.com/using-session-cookies-vs-jwt-for-authentication-sd2v3vci" target="_blank">16</a></sup> 
           Upon successful login, the server generates an access token that stores the user’s ID and session expiration in an encrypted form. 
           Then, for each subsequent request, the client sends the JWT, the server decrypts it, and then determines if the session is still valid. 
           One advantage of this strategy is that the server doesn’t have to keep track of sessions because the session information is stored directly 
@@ -759,7 +763,8 @@
         <h4>Secure Cookies</h4>
         <p>
           To further secure Bastion, we decided to require HTTPS. Once a request from the public internet reaches the Application Load Balancer (ALB) 
-          we perform SSL offloading<sup><a href="https://avinetworks.com/glossary/ssl-offload/">17</a></sup>. In other words, because we’re using HTTPS, a request is encrypted until it reaches the ALB. Then, 
+          we perform SSL offloading.<sup><a href="https://avinetworks.com/glossary/ssl-offload/" target="_blank">17</a></sup> 
+          In other words, because we’re using HTTPS, a request is encrypted until it reaches the ALB. Then, 
           the ALB decrypts the request and forwards it using HTTP to the appropriate AWS resource within the Bastion VPC. If we didn’t perform SSL 
           offloading at the ALB, then we would need to generate SSL certificates for the Admin app and each Bastion Server, which would be difficult 
           to configure. Additionally, the encryption and decryption required at each network hop would increase the load on the servers, 
@@ -778,7 +783,8 @@
           transmittable over HTTPS. But using secure cookies presents a problem. Since we are performing SSL offloading, requests are converted from 
           HTTPS to HTTP when they pass through the ALB. Since secure cookies must be sent over HTTPS, the user session cookies are dropped during SSL 
           offloading. Thankfully, we were able to configure Bastion Server to overcome this problem. By configuring Express with <code>app.set('trust proxy', 
-          1)</code>, we tell our server that there is one proxy in front of it (our ALB) and that it can trust that proxy to pass secure cookies over HTTP<sup><a href="https://expressjs.com/en/guide/behind-proxies.html">18</a></sup>.
+          1)</code>, we tell our server that there is one proxy in front of it (our ALB) and that it can trust that proxy to pass secure cookies over 
+          HTTP.<sup><a href="https://expressjs.com/en/guide/behind-proxies.html" target="_blank">18</a></sup>
         </p>
         <br />
 
@@ -830,11 +836,11 @@
         <p>
           Besides data manipulation, another key feature of Bastion is Cloud Code—allowing users to define their own custom functions that can be called 
           from their frontend code. As mentioned above, we decided to use AWS Lambda functions for Cloud Code, but we still need an implementation strategy. 
-          One option would be to use Docker containers<sup><a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">19</a></sup>. With this strategy, a Docker image would need to be created, uploaded to 
-          AWS Elastic Container Registry (ECR), and then a new Lambda function would be defined based on that container image. An alternative strategy 
-          would be to intake the custom Cloud Code function as a zip file, upload it to an S3 bucket, and then create a new Lambda function based on 
-          the zip file. We reasoned that uploading a zip file is a more straightforward process than generating a Docker image and pushing it to ECR, 
-          so we implementing Cloud Code using zip files and S3 to keep Bastion simple and user friendly.
+          One option would be to use Docker containers.<sup><a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html" target="_blank">19</a></sup> 
+          With this strategy, a Docker image would need to be created, uploaded to AWS Elastic Container Registry (ECR), and then a new Lambda function would 
+          be defined based on that container image. An alternative strategy would be to intake the custom Cloud Code function as a zip file, upload it to an S3 
+          bucket, and then create a new Lambda function based on the zip file. We reasoned that uploading a zip file is a more straightforward process than 
+          generating a Docker image and pushing it to ECR, so we implementing Cloud Code using zip files and S3 to keep Bastion simple and user friendly.
         </p>
         <figure>
           <img src="assets/images/23_lambda_vs_docker.png" class="case-study-image-2" />
@@ -1225,11 +1231,11 @@
         <h2 class="h2 ten">10 References</h2>
 
         <ol class="references">
-          <li><a href="https://github.com/appwrite/appwrite/issues/307">https://github.com/appwrite/appwrite/issues/307</a></li>
-          <li><a href="https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/">https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/</a></li>
-          <li><a href="https://devblogs.microsoft.com/appcenter/app-center-mbaas-retirement/">https://devblogs.microsoft.com/appcenter/app-center-mbaas-retirement/</a></li>
-          <li><a href="https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/">https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/</a></li>
-          <li><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html</a></li>
+          <li><a href="https://github.com/appwrite/appwrite/issues/307" target="_blank">https://github.com/appwrite/appwrite/issues/307</a></li>
+          <li><a href="https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/" target="_blank">https://techcrunch.com/2017/01/30/facebooks-parse-developer-platform-is-shutting-down-today/</a></li>
+          <li><a href="https://devblogs.microsoft.com/appcenter/app-center-mbaas-retirement/" target="_blank">https://devblogs.microsoft.com/appcenter/app-center-mbaas-retirement/</a></li>
+          <li><a href="https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/" target="_blank">https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/</a></li>
+          <li><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html" target="_blank">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html</a></li>
           <li><a href="http://highscalability.com/blog/2010/12/6/what-the-heck-are-you-actually-using-nosql-for.html" target="_blank">http://highscalability.com/blog/2010/12/6/what-the-heck-are-you-actually-using-nosql-for.html</a></li>
           <li><a href="https://docs.docker.com/storage/volumes/" target="_blank">https://docs.docker.com/storage/volumes/</a></li>
           <li><a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html" target="_blank">https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html</a></li>
