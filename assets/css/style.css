@@ -122,7 +122,7 @@ figcaption {
 }
 
 #sidebar ul a:hover {
-  color: #98ded9;
+  color: #F85523;
 }
 
 #sidebar ul ul {
@@ -297,11 +297,17 @@ label {
 .case-study-image {
   margin: 40px auto;
   display: block;
+  width: 100%;
+}
+
+.case-study-image-2 {
+  margin: 40px auto;
+  display: block;
   width: 70%;
 }
 
 .demo {
-  width: 100%;
+  border-radius: 5px;
 }
 
 .command {
@@ -763,7 +769,7 @@ p {
 
 li {
   font-size: 18px;
-  line-height: 1.65;
+  line-height: 2;
 }
 
 blockquote {
@@ -785,7 +791,7 @@ a {
 }
 
 a:hover {
-  color: #98ded9;
+  color: #F85523;
 }
 
 .section {
@@ -1939,7 +1945,63 @@ a:hover {
   }
 }
 
-/* DENDRO ADDITIONS */
+/* ADDITIONS */
 .bold {
+  font-weight: bold;
+}
+
+code {
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  color: #EB5757;
+  font-size: 90%;
+  padding: 0.2em 0.4em;
+}
+
+.code-bold {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid rgb(233, 233, 231);
+  line-height: 1.6em;
+  padding: 5px;
+  text-align: left;
+  vertical-align: top;
+  width: 50%;
+}
+
+.sdk, .sdk img {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+sup {
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.references {
+  margin-top: 3em;
+  margin-bottom: 18em;
+}
+
+.references li a, .references li::marker {
+  font-size: 12px;
+}
+
+.references li {
+  line-height: 1.5;
+}
+
+.active-link {
+  color: #F85523;
   font-weight: bold;
 }
