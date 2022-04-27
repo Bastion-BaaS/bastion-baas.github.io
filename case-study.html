@@ -987,27 +987,27 @@
             <th>Description</th>
           </tr>
           <tr>
-            <td><code>sdk.db.getAllItems(collectionName)</code></td>
+            <td><code>sdk.db.getAllItems( collectionName )</code></td>
             <td>Returns all items in a collection as a JSON object.</td>
           </tr>
           <tr>
-            <td><code>sdk.db.getItem(collectionName, itemId)</code></td>
+            <td><code>sdk.db.getItem( collectionName, itemId )</code></td>
             <td>Returns a single item in a collection as a JSON object.</td>
           </tr>
           <tr>
-            <td><code>sdk.db.createItem(collectionName, data)</code></td>
+            <td><code>sdk.db.createItem( collectionName, data )</code></td>
             <td>Returns a single item in a collection as a JSON object.</td>
           </tr>
           <tr>
-            <td><code>sdk.db.overwriteItem(collectionName, itemId, data)</code></td>
+            <td><code>sdk.db.overwriteItem( collectionName, itemId, data )</code></td>
             <td>Overwrites a database record with the passed-in JSON object. Only the key–value pairs in <code>data</code> are changed.</td>
           </tr>
           <tr>
-            <td><code>sdk.db.updateItem(collectionName, itemId, data)</code></td>
+            <td><code>sdk.db.updateItem( collectionName, itemId, data )</code></td>
             <td>Updates a database record with the passed-in JSON object. The entire record is replaced.</td>
           </tr>
           <tr>
-            <td><code>sdk.db.deleteItem(collectionName, itemId)</code></td>
+            <td><code>sdk.db.deleteItem( collectionName, itemId )</code></td>
             <td>Deletes a database record.</td>
           </tr>
         </table>
@@ -1021,7 +1021,7 @@
             <th>Description</th>
           </tr>
           <tr>
-            <td><code>sdk.ccf.run(cloudFunctionName, parameters)</code></td>
+            <td><code>sdk.ccf.run( cloudFunctionName, parameters )</code></td>
             <td>Runs the specified Cloud Code function and returns the return value of the function.</td>
           </tr>
         </table>
@@ -1039,15 +1039,15 @@
             <td>Returns information about all files, each file is represented as a JSON object with the filename and S3 URL.</td>
           </tr>
           <tr>
-            <td><code>sdk.storage.getFile(fileId)</code></td>
+            <td><code>sdk.storage.getFile( fileId )</code></td>
             <td>Returns information about all files, each file is represented as a JSON object with the filename and S3 URL.</td>
           </tr>
           <tr>
-            <td><code>sdk.storage.uploadFile(data, name)</code></td>
+            <td><code>sdk.storage.uploadFile( data, name )</code></td>
             <td>Uploads a file to S3. The <code>data</code> expects the file as <code>multipart/form-data</code>.</td>
           </tr>
           <tr>
-            <td><code>sdk.storage.deleteFile(fileId)</code></td>
+            <td><code>sdk.storage.deleteFile( fileId )</code></td>
             <td>Deletes a file.</td>
           </tr>
         </table>

@@ -334,6 +334,11 @@ label {
     width: 100%;
     margin: 0px auto;
   }
+
+  .case-study-image-2 {
+    width: 100%;
+    margin: 0px auto;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -344,6 +349,14 @@ label {
   .case-study-image {
     width: 80%;
     margin: 0px auto;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  sup a {
+    font-size: 12px;
   }
 }
 
@@ -1943,6 +1956,10 @@ a:hover {
   #team-header {
     padding-bottom: 0px;
   }
+
+  sup a {
+    font-size: 10px;
+  }
 }
 
 /* ADDITIONS */
@@ -1991,6 +2008,7 @@ sup {
 .references {
   margin-top: 3em;
   margin-bottom: 18em;
+  overflow: hidden;
 }
 
 .references li a, .references li::marker {
@@ -2004,4 +2022,25 @@ sup {
 .active-link {
   color: #F85523;
   font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+  figure {
+    margin: 20px 0;
+  }
+
+  .case-study-image, .case-study-image-2 {
+    width: 100%;
+  }
+
+  figcaption {
+    font-size: 11px;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .references {
+    margin-bottom: 0;
+  }
 }
